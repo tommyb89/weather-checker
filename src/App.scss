@@ -1,0 +1,49 @@
+@use "./assets/sass/reset";
+
+.app {
+  height: 100vh;
+
+  background-image: url("https://wallpaperaccess.com/full/3265126.jpg");
+  background-size: cover;
+  transition: 0.4s ease-out;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+
+  &.sunny {
+    background-image: url("https://wallpaperaccess.com/full/3265126.jpg");
+    height: 100vh;
+  }
+
+  &.snow {
+    background-image: url("https://www.metoffice.gov.uk/binaries/content/gallery/metofficegovuk/hero-images/weather/winter/benches-in-snow-covered-woods.jpg");
+  }
+
+  &.rain {
+    background-image: url("https://c0.wallpaperflare.com/preview/91/564/20/latvia-liep%C4%81ja-blurry-bokeh.jpg");
+  }
+
+  &.cloudy {
+    background-image: url("https://cloudfront-us-east-1.images.arcpublishing.com/coxohio/FDIJ2UYUQJHGFMJGER3FMGKMSE.jpg");
+  }
+
+  &__header {
+    text-align: center;
+    background-color: rgba(240, 248, 255, 0.911);
+    border-radius: 0.5rem;
+    width: 350px;
+    padding: 0.5rem 2rem;
+    margin: auto;
+    border: 3px solid rgb(175, 175, 175);
+  }
+
+  &__main {
+    padding: 3rem;
+    min-height: 100vh;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.5)
+    );
+  }
+}
