@@ -70,7 +70,7 @@ const App = () => {
         return "snow";
       } else if (weather.weather[0].id >= 701 && weather.weather[0].id <= 781) {
         return "atmosphere";
-      } else if (weather.weather[0].id == 800) {
+      } else if (weather.weather[0].id === 800) {
         return "clear";
       } else if (weather.weather[0].id >= 801 && weather.weather[0].id <= 804) {
         return "clouds";
