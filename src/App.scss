@@ -10,9 +10,8 @@
   background-attachment: fixed;
   background-position: center;
 
-  &.sunny {
+  &.clear {
     background-image: url("https://wallpaperaccess.com/full/3265126.jpg");
-    height: 100vh;
   }
 
   &.snow {
@@ -23,18 +22,25 @@
     background-image: url("https://c0.wallpaperflare.com/preview/91/564/20/latvia-liep%C4%81ja-blurry-bokeh.jpg");
   }
 
-  &.cloudy {
+  &.clouds {
     background-image: url("https://cloudfront-us-east-1.images.arcpublishing.com/coxohio/FDIJ2UYUQJHGFMJGER3FMGKMSE.jpg");
+  }
+
+  &.drizzle {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/5b/Row_of_poplars_in_the_drizzle_-_geograph.org.uk_-_591822.jpg");
+  }
+
+  &.thunderstorm {
+    background-image: url("https://e3.365dm.com/21/06/2048x1152/skynews-lightning-weather-wembley-stadium_5416819.jpg");
   }
 
   &__header {
     text-align: center;
     background-color: rgba(240, 248, 255, 0.911);
     border-radius: 0.5rem;
-    width: 350px;
+    color: rgba(39, 39, 39, 0.849);
     padding: 0.5rem 2rem;
     margin: auto;
-    border: 3px solid rgb(175, 175, 175);
   }
 
   &__main {

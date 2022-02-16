@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.scss";
 import Search from "./components/Search/Search";
 import Card from "./components/Card/Card";
@@ -42,15 +43,64 @@ const dateBuilder = (d) => {
 };
 
 const App = () => {
+  const [query, setQuery] = useState("");
+  const [weather, setWeather] = useState({});
+
+  const search = (e) => {
+    if (e.key === "Enter") {
+      fetch(`${api.base}weather?q=${query}&units=metric&appid=${api.key}`)
+        .then((res) => res.json())
+        .then((result) => {
+          setWeather(result);
+          setQuery("");
+          console.log(result);
+        });
+    }
+  };
+
+  const weatherBackground = () => {
+    if (typeof weather.main != "undefined") {
+      if (weather.weather[0].id >= 200 && weather.weather[0].id <= 232) {
+        return "thunderstorm";
+      } else if (weather.weather[0].id >= 300 && weather.weather[0].id <= 321) {
+        return "drizzle";
+      } else if (weather.weather[0].id >= 500 && weather.weather[0].id <= 531) {
+        return "rain";
+      } else if (weather.weather[0].id >= 600 && weather.weather[0].id <= 622) {
+        return "snow";
+      } else if (weather.weather[0].id >= 701 && weather.weather[0].id <= 781) {
+        return "atmosphere";
+      } else if (weather.weather[0].id == 800) {
+        return "clear";
+      } else if (weather.weather[0].id >= 801 && weather.weather[0].id <= 804) {
+        return "clouds";
+      }
+    }
+  };
+
   return (
-    <div className="app snow">
+    <div className={`app + ${weatherBackground()}`}>
       <main className="app__main">
         <h1 className="app__header">weather checker</h1>
-        <Search />
+        <Search
+          onChange={(e) => setQuery(e.target.value)}
+          value={query}
+          onKeyPress={search}
+        />
 
-        <div className="app__weather-container">
-          <Card dateBuilder={dateBuilder} />
-        </div>
+        {typeof weather.main != "undefined" ? (
+          <div className="app__weather-container">
+            <Card
+              dateBuilder={dateBuilder}
+              location={weather.name}
+              country={weather.sys.country}
+              temp={Math.round(weather.main.temp)}
+              weather={weather.weather[0].main}
+            />
+          </div>
+        ) : (
+          ""
+        )}
       </main>
     </div>
   );
