@@ -1,5 +1,6 @@
 {
   "name": "weather-checker",
+  "homepage": "https://62122972ee4be8b7a322f185--elastic-shockley-e53875.netlify.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
