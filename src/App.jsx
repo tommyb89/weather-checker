@@ -81,7 +81,7 @@ const App = () => {
   return (
     <div className={`app + ${weatherBackground()}`}>
       <main className="app__main">
-        <h1 className="app__header">weather checker</h1>
+        <h1 className="app__header">Weather Checker</h1>
         <Search
           onChange={(e) => setQuery(e.target.value)}
           value={query}
